@@ -1,15 +1,13 @@
 const ethers = require("ethers");
 const fs = require("fs");
+require("dotenv").config();
 
 /* I had issues deploying the contract using the JsonRpcProvider provided by Ganache with WSL */
 async function main() {
     const provider = new ethers.providers.JsonRpcProvider(
-        "http://0.0.0.0:7545"
+        process.env.GANACHE_RPC_URL
     );
-    const wallet = new ethers.Wallet(
-        "b327db9825179ebe544d9a616f48a810acf8e06132281bb5ed48468c2567df9b",
-        provider
-    );
+    const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
     const abi = fs.readFileSync(
         "./SimpleStorage_sol_SimpleStorage.abi",
         "utf8"
