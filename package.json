@@ -1,9 +1,13 @@
 {
   "dependencies": {
+    "@ethersproject/logger": "^5.7.0",
+    "@types/fs-extra": "^9.0.13",
     "dotenv": "^16.0.3",
     "ethers": "^5.7.2",
     "fs": "^0.0.1-security",
-    "solc": "^0.8.17"
+    "solc": "^0.8.17",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   },
   "scripts": {
     "compile": "yarn solcjs --bin --abi --include-path node_modules/ --base-path . -o . SimpleStorage.sol"
